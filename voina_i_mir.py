@@ -5,7 +5,7 @@ from glob import glob
 
 def find_txt() -> str:
     '''
-    Функция ищет zip распаковывает его ищет txt возващает название файла
+    Функция ищет zip распаковывает его ищет txt возвращает название файла
     :return: str
     '''
     for file in glob('*.zip'):
@@ -19,11 +19,21 @@ def find_txt() -> str:
 
 
 def my_counter(foo: str):
+    '''
+    Удаляет все что нам не нужно из аргумента
+    :param foo:
+    :return:
+    '''
     name = foo.rstrip().replace(' ', '').replace('\n', '')
     return Counter(name)
 
 
 def sort_key(e):
+    '''
+    нужно для сортировки по ключю, второй элемент кортежа
+    :param e:
+    :return:
+    '''
     return e[1]
 
 

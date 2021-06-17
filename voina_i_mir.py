@@ -1,6 +1,7 @@
 from collections import Counter
 from zipfile import ZipFile
 from glob import glob
+import re
 
 
 def find_txt() -> str:
@@ -41,9 +42,5 @@ if __name__ == '__main__':
     gg = []
     with open(find_txt(), 'r', encoding='utf8') as f:
         foo = f.read()
-        bar = my_counter(foo)
-        for i in bar.items():
-            if i[0].isalpha():
-                gg.append(i)
-
-    print(sorted(gg, key=sort_key, reverse=True))
+        result = re.sub(r'[^A-Za-zА-Яа-я]', '', foo)
+        print(Counter(result))
